@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <title>Lineups</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1d1f27;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+.main-h{
+    margin: auto;
+    width: 100%;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    background: #1a1a1df6;
+}
+.header {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('header-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 15px;
+}
+.header a{
+    width: 70px;
+    text-decoration: none;
+}
+.logo{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+.logo img {
+    width: 40px;
+    height: auto;
+    float: left;
+}
+.logo a{
+    color: #fff;
+    font-size: 22px;
+    text-decoration: none;
+    height: auto;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 70px;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover {
+    color: #ff4654;
+}
+
+        header {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .filters {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        select {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .lineup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .lineup {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .lineup img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .lineup p {
+            margin-top: 10px;
+        }
+
+        .lineup iframe {
+            margin-top: 10px;
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .no-results {
+            margin-top: 30px;
+            color: #aaa;
+        }
+        .footer{
+    padding: 0px 520px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #1a1a1d;
+}
+.footer img{
+    width: 30px;
+    height: 30px;
+}
+    </style>
+</head>
+<body>
+    <div class="main-h">
+        <div class="header">
+            <a href="#"><div class="logo">
+                <img src="./images/logo.png" alt="Valorant Basics Logo">
+                <a href="#">Valorant ProHub</a>
+            </div></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="1.html">Agents</a></li>
+                    <li><a href="maps.html">Maps</a></li>
+                    <li><a href="weapons.html">Weapons</a></li>
+                    <li><a href="lineups.html">Lineups</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<header>
+    <h1>Valorant Lineups</h1>
+    <p>Select an agent and a map to filter the lineups</p>
+</header>
+
+<div class="container">
+    <div class="filters">
+        <div>
+            <label for="agentSelect">Choose an Agent:</label>
+            <select id="agentSelect">
+                <option value="">All Agents</option>
+                <option value="brimstone">Brimstone</option>
+                <option value="sova">Sova</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="mapSelect">Choose a Map:</label>
+            <select id="mapSelect">
+                <option value="">All Maps</option>
+                <option value="bind">Bind</option>
+                <option value="ascent">Ascent</option>
+                <option value="haven">Haven</option>
+                <option value="split">Split</option>
+                <option value="Icebox">Icebox</option>
+                <option value="breeze">Breeze</option>
+                <option value="lotus">Lotus</option>
+                <option value="pearl">Pearl</option>
+                <option value="sunset">Sunset</option>
+            </select>
+        </div>
+
+        <button onclick="filterLineups()">Apply Filters</button>
+    </div>
+
+    <div id="lineupGrid" class="lineup-grid"></div>
+    <div id="noResults" class="no-results" style="display: none;">No lineups found for the selected criteria.</div>
+</div>
+<div class="footer">
+    <img src="./images/logo.png">
+    <p>© 2024, Valorant ProHub</p>
+</div>
+
+<script>
+    // Lineup data - you can expand this with more lineups
+    const lineupData = [
+        { agent: 'brimstone', map: 'bind', description: 'Brimstone Bind Lineups', videoUrl: 'https://www.youtube.com/embed/5qfkHX02Hwc' },
+        { agent: 'sova', map: 'bind', description: 'Sova Bind Lineups', videoUrl: 'https://www.youtube.com/embed/K0DRiro-CYU' },
+        { agent: 'brimstone', map: 'ascent', description: 'Brimstone Ascent Lineups', videoUrl: 'https://www.youtube.com/embed/YD0L3nbWrh4' },
+        { agent: 'sova', map: 'ascent', description: 'Sova Ascent Lineups', videoUrl: 'https://www.youtube.com/embed/Ejz3T8TTSKA' },
+        { agent: 'brimstone', map: 'haven', description: 'Brimstone Haven Lineups', videoUrl: 'https://www.youtube.com/embed/4fJiPeI8_HU' },
+        { agent: 'sova', map: 'haven', description: 'Sova Haven Lineups', videoUrl: 'https://www.youtube.com/embed/K_AdG856rX8' },
+        { agent: 'brimstone', map: 'icebox', description: 'Brimstone Icebox Lineups', videoUrl: 'https://www.youtube.com/embed/BmMNEe3QI0I' },
+        { agent: 'sova', map: 'icebox', description: 'Sova Icebox Lineups', videoUrl: 'https://www.youtube.com/embed/dTBdvdAIbt4' },
+        { agent: 'brimstone', map: 'breeze', description: 'Brimstone Breeze Lineups', videoUrl: 'https://www.youtube.com/embed/lUcBrbnwBIc' },
+        { agent: 'sova', map: 'breeze', description: 'Sova Breeze Lineups', videoUrl: 'https://www.youtube.com/embed/pbjuJMwvseQ' },
+        { agent: 'brimstone', map: 'lotus', description: 'Brimstone Lotus Lineups', videoUrl: 'https://www.youtube.com/embed/dqRikWERfc4' },
+        { agent: 'sova', map: 'lotus', description: 'Sova Lotus Lineups', videoUrl: 'https://www.youtube.com/embed/qagO1UAchfU' },
+        { agent: 'brimstone', map: 'pearl', description: 'Brimstone Pearl Lineups', videoUrl: 'https://www.youtube.com/embed/v036AhnT3BI' },
+        { agent: 'sova', map: 'pearl', description: 'Sova Pearl Lineups', videoUrl: 'https://www.youtube.com/embed/ju7V3--ZJSM' },
+        { agent: 'brimstone', map: 'sunset', description: 'Brimstone Sunset Lineups', videoUrl: 'https://www.youtube.com/embed/wkWu1SkPEfo' },
+        { agent: 'sova', map: 'sunset', description: 'Sova Sunset Lineups', videoUrl: 'https://www.youtube.com/embed/M-JaBRudlhM' },
+        { agent: 'brimstone', map: 'split', description: 'Brimstone Split Lineups', videoUrl: 'https://www.youtube.com/embed/slVJZe9yrxw' },
+        { agent: 'sova', map: 'split', description: 'Sova Split Lineups', videoUrl: 'https://www.youtube.com/embed/hnLQlVqJtGQ' },
+    ];
+
+    // Initial function to display all lineups
+    function displayLineups(lineups) {
+        const lineupGrid = document.getElementById('lineupGrid');
+        lineupGrid.innerHTML = ''; // Clear previous lineups
+
+        lineups.forEach(lineup => {
+            const lineupDiv = document.createElement('div');
+            lineupDiv.className = 'lineup';
+
+            const lineupDesc = document.createElement('p');
+            lineupDesc.textContent = lineup.description;
+
+            const lineupVideo = document.createElement('iframe');
+            lineupVideo.src = lineup.videoUrl;
+            lineupVideo.allowFullscreen = true;
+
+            lineupDiv.appendChild(lineupDesc);
+            lineupDiv.appendChild(lineupVideo);
+
+            lineupGrid.appendChild(lineupDiv);
+        });
+    }
+
+    // Filter function
+    function filterLineups() {
+        const agent = document.getElementById('agentSelect').value;
+        const map = document.getElementById('mapSelect').value;
+
+        const noResults = document.getElementById('noResults');
+
+        let filteredLineups = lineupData;
+
+        if (agent) {
+            filteredLineups = filteredLineups.filter(lineup => lineup.agent === agent);
+        }
+
+        if (map) {
+            filteredLineups = filteredLineups.filter(lineup => lineup.map === map);
+        }
+
+        // Show filtered lineups or no results message
+        if (filteredLineups.length > 0) {
+            displayLineups(filteredLineups);
+            noResults.style.display = 'none';
+        } else {
+            document.getElementById('lineupGrid').innerHTML = ''; // Clear grid
+            noResults.style.display = 'block'; // Show no results message
+        }
+    }
+
+    // Display all lineups on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        displayLineups(lineupData);
+    });
+</script>
+
+</body>
+</html>

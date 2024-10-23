@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Subscription Plans</title>
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("images/bgsubscription.webp");
+    font-size: large;
+    background-size: cover;
+}
+
+header {
+    height: 100px;
+    padding: 0 30px 30px 30px;
+    background: #333333a2;
+    color: #fff;
+}
+.text{
+    position: absolute;
+    text-align: center;
+    left: 30%;
+}
+
+form {
+    margin-left: 800px;
+    max-width: 400px;
+    padding: 20px;
+}
+#subscription{
+    margin-top: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+input[type="text"], input[type="date"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn a{
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    padding: 15px 30px;
+    background: #ffffffe1;
+    border-radius: 10px;
+    color: #333;
+    transition: 0.5s;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+}
+.btn a:hover{
+    background: #333;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.plan-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.plan {
+    background-color: #ffffff9f;
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 15px;
+    margin: 40px;
+    padding: 20px;
+    width: 300px;
+    height: 331px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.plan h2 {
+    color: #333;
+}
+
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.plan button {
+    background-color: #28a745;
+    color: white;font-size: large;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.plan button:hover {
+    background-color: #218838;
+}
+.footer{
+    padding: 0px 500px;
+    background-color: #333333a2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer img{
+    width: 40px;
+    height: 40px;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    height: 180px;
+}
+.popup-content button{
+    background-color: #28a745;
+    color: white;font-size: large;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.popup-content button:hover {
+    background-color: #218838;
+}
+.close-popup{
+    position: absolute;
+    right: 36.5%;
+    padding: 5px 11px;
+    cursor: pointer;
+    border-radius: 25px;
+    background: #33333357;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="btn">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="text">
+            <h1>Choose Your Subscription Plan</h1>
+            <p>Select the plan that best suits your needs.</p>
+        </div>
+    </header>
+
+    <main>
+        <form action="/subscription" method="post" id="Subscription">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+    
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+    
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+    
+            <label for="riotId">Riot ID:</label>
+            <input type="text" id="riotId" name="riotId" placeholder="RiotID#Tagline" required>
+    
+            <label for="experience">Years of Experience:</label>
+            <input type="number" id="experience" name="experience" min="0" required>
+    
+            <label for="discordId">Discord ID:</label>
+            <input type="text" id="discordId" name="discordId" placeholder="Username#0000">
+    
+        </form>
+        <div class="plan-container">
+            <div class="plan" id="Beginner">
+                <h2>Beginner</h2>
+                <p>500 Rs./week</p>
+                <ul>
+                    <li>Explanation about the<br> basics of Valorant</li><br>
+                    <li>Alternate day</li><br>
+                    <li>2hrs. per day</li>
+                </ul>
+                <button onclick="purchase(500, 'Beginner Plan')">Subscribe Now</button>
+            </div>
+
+            <div class="plan" id="Intermediate">
+                <h2>Intermediate</h2>
+                <p>5,000 Rs./month</p>
+                <ul>
+                    <li>Aim training<br> Ability usage</li><br>
+                    <li>3 Days per Week</li><br>
+                    <li>3hrs. per day</li>
+                </ul>
+                <button onclick="purchase(50000, 'intermediate Plan')">Subscribe Now</button>
+            </div>
+
+            <div class="plan" id="Immortal">
+                <h2>Immortal</h2>
+                <p>10,000 Rs./month</p>
+                <ul>
+                    <li>Working on tactics<br> Game plans</li><br>
+                    <li>5 Days a Week</li><br>
+                    <li>5hrs. per day</li>
+                </ul>
+                <button onclick="purchase(10000, 'Immortal Plan')">Subscribe Now</button>
+            </div>
+        </div>
+    </main>
+
+    <div class="footer">
+        <img src="./images/logo.png">
+        <p>© 2024, Valorant ProHub</p>
+    </div>
+
+    <div class="popup" id="paymentPopup">
+        <div class="popup-content">
+            <div class="close-popup" onclick="close_popup()">
+                x
+            </div>
+            <h2>Processing Payment...</h2>
+            <p>Please wait while we process your payment.</p>
+            <button onclick="completePayment()">Simulate Payment Completion</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedPlan = '';
+        function purchase(amount, plan) {
+            selectedPlan = plan;
+            document.getElementById('paymentPopup').style.display = 'flex';
+        }
+        function close_popup() {
+            document.getElementById('paymentPopup').style.display = 'none';
+        }
+
+        function completePayment() {
+            document.getElementById('paymentPopup').style.display = 'none';
+            alert('Payment successful! Thank you for subscribing to the plan.');
+            submitFormWithPlan();
+        }
+
+
+        function submitFormWithPlan() {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const dob = document.getElementById('dob').value;
+    const riotId = document.getElementById('riotId').value;
+    const experience = document.getElementById('experience').value;
+    const discordId = document.getElementById('discordId').value;
+    const UserName = localStorage.getItem('userName');
+
+    const planDetails = selectedPlan;
+
+    fetch('http://localhost:6161/subscription', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, lastName, dob, riotId, experience, discordId, planDetails, UserName }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.success) {
+            alert('Sign up successful!');
+            document.getElementById('Subscription').reset();
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch((error) => console.error('Error:', error));
+}
+    </script>
+</body>
+</html>

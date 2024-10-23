@@ -1,0 +1,206 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #d1d1d1;
+    scroll-behavior: smooth; 
+    scrollbar-width: thin;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: century gothic;
+}
+.main-h{
+    margin: auto;
+    width: 100%;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    background: #1a1a1df6;
+}
+.header {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('header-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 15px;
+}
+.header a{
+    width: 70px;
+    text-decoration: none;
+}
+.logo{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+.logo img {
+    width: 40px;
+    height: auto;
+    float: left;
+}
+.logo a{
+    color: #fff;
+    font-size: 22px;
+    text-decoration: none;
+    height: auto;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 70px;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+nav ul li a:hover {
+    color: #ff4654;
+}
+.content-section {
+    padding: 20px 0 0 0;
+    background-color: #1a1a1d;
+}
+h1 {
+    color: #ff4654;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.all-weapons{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+.a1{
+    width: 300px;
+    margin-top: 3px;
+    border: 1px solid #fff;
+    background: #79c97db7;
+    text-align: center;
+}
+#l-side{
+    width: 300px;
+    height: 70px;
+    margin-top: 3px;
+    padding-top: 20px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.classic, .shorty, .frenzy, .ghost, .sheriff, .stinger, .specter, .bucky, .judge, .bulldog, .gaurdian, .phantom, .vandal, .marshal, .outlaw, .operator, .ares, .odin{
+    display: flex;
+    justify-content: space-around;
+}
+#l-side img{
+    margin: 0 0 0 3px;
+    width: 120px;
+    height: auto;
+}
+
+#mid-1{
+    width: 300px;
+    height: 70px;
+    margin-top: 3px;
+    padding-top: 20px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+#mid-1 img{
+    width: 140px;
+    margin: 0 0 0 3px;
+}
+
+#mid-2{
+    width: 300px;
+    height: 70px;
+    margin-top: 3px;
+    padding-top: 20px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+#mid-2 img{
+    width: 140px;
+    margin: 0 0 0 3px;
+}
+
+#r-side{
+    width: 300px;
+    height: 70px;
+    margin-top: 3px;
+    padding-top: 20px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+#r-side img{
+    width: 160px;
+    margin: 0 0 0 3px;
+}
+
+.all-weapons img{
+    padding-bottom: 15px;
+    height: 50px;
+}
+#modalWindow {
+    width: 90%;
+    height: 90%;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1;
+}
+.close{
+    position: fixed;
+    color: #000;
+    top: -20px;
+    right: -50px;
+    font-size: larger;
+    padding: 5px 14px 7px 14px;
+    cursor: pointer;
+    border-radius: 25px;
+    background: #fff;
+    z-index: 3;
+}
+#modalVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+}
+#videoSource1{
+    z-index: 3;
+}
+
+
+.footer p{
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.footer{
+    padding: 0px 520px;
+    display: flex;
+    justify-content: space-around;
+    background: #1a1a1d;
+}
+.footer img{
+    width: 30px;
+    height: 30px;
+}
